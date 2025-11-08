@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI} !^public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^app\.hrlooks\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.app\.hrlooks\.com$
+RewriteRule ^/?$ "https\:\/\/app\.hrlooks\.com\/" [R=301,L]
+
