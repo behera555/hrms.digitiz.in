@@ -224,13 +224,13 @@
                             Basic</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->basic,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->basic ?? 0,2)}}</td>
                         <td
                             style="height: 35px;padding-left:5px;font-weight: bold;font-size: 18px;border-right: solid 2px #000;width: 30%;border-bottom:solid 2px #000;">
                             Professional Tax</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 0px #000;width: 30%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->professional_tax,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->professional_tax ?? 0,2)}}</td>
                     </tr>
                     <tr>
                         <td
@@ -238,13 +238,13 @@
                             HRA</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->hra_allowance,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->hra_allowance ?? 0,2)}}</td>
                         <td
                             style="height: 35px;padding-left:5px;font-weight: bold;font-size: 18px;border-right: solid 2px #000;width: 30%;border-bottom:solid 2px #000;">
                             PF Employee</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 0px #000;width: 30%;border-bottom:solid 2px #000;">
-                            {{ !empty($employees_pf->pf_employee) }}</td>
+                            {{ optional($employees_pf)->pf_employee }}</td>
                             
                     </tr>
                     <tr>
@@ -253,11 +253,11 @@
                             Travel & Fuel</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->travel_allowances,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->travel_allowances ?? 0,2)}}</td>
                             
                         <td style="height: 35px;padding-left:5px;font-weight: bold;font-size: 18px;border-right: solid 2px #000;width: 30%;border-bottom:solid 2px #000;">PF - Employer</td>
                         <td style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            {{ !empty($employees_pf->pf_employer) }}</td>
+                            {{ optional($employees_pf)->pf_employer }}</td>
                     </tr>
                     <tr>
                         <td
@@ -265,7 +265,7 @@
                             Education</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->education,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->education ?? 0,2)}}</td>
 
                     </tr>
                     <tr>
@@ -274,7 +274,7 @@
                             Communication</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->communication,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->communication ?? 0,2)}}</td>
 
                     </tr>
                     <tr>
@@ -283,7 +283,7 @@
                             LTA </td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->lta,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->lta ?? 0,2)}}</td>
 
                     </tr>
                     <tr>
@@ -292,7 +292,7 @@
                             Special Allowances </td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->special_allowance,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->special_allowance ?? 0,2)}}</td>
 
                     </tr>
 
@@ -318,7 +318,7 @@
                             Total Deductions</td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 0px #000;width: 30%;border-bottom:solid 2px #000;border-top:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->professional_tax,2)}}</td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->professional_tax ?? 0,2)}}</td>
                     </tr>
 
                     <tr>
@@ -327,7 +327,7 @@
                             Gross Deductions </td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
-                            <i class="fa fa-rupee"></i> {{numberFormat($employees_monthly_salary_breakup->professional_tax,2)}} </td>
+                            <i class="fa fa-rupee"></i> {{numberFormat(optional($employees_monthly_salary_breakup)->professional_tax ?? 0,2)}} </td>
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;width: 30%;border-bottom:solid 2px #000;">
                         </td>
@@ -343,7 +343,7 @@
                         <td
                             style="height: 35px;text-align: center;font-size: 18px;border-right: solid 2px #000;width: 20%;border-bottom:solid 2px #000;">
                             <i class="fa fa-rupee"></i>
-                            {{numberFormat($employees_monthly_salary_breakup->net_pay,2)}}
+                            {{numberFormat(optional($employees_monthly_salary_breakup)->net_pay ?? 0,2)}}
                         </td>
                         <td
                             style="height: 35px;text-align: center;font-weight: bold;font-size: 18px;width: 30%;border-bottom:solid 2px #000;">

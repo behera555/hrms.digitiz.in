@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relieving Letter - Digitiz</title>
+    <style>
+        @page { size: A4 portrait; margin: 0; }
+        html, body { margin: 0; padding: 0; width: 210mm; }
+        table { border-collapse: collapse; border-spacing: 0; }
+    </style>
 </head>
-<body style="margin: 0; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; width: 210mm;">
 
 <!-- Main Document Container -->
-<table width="100%" cellpadding="0" cellspacing="0" style="max-width: 800px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+<div style="width: 210mm; margin: 0; padding: 0;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width: 210mm; margin: 0; background-color: #ffffff; border: none; border-collapse: collapse; table-layout: fixed;">
     
     <!-- Header Section -->
     <tr>
@@ -16,7 +22,7 @@
             <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="70%" style="vertical-align: top;">
-                        <h1 style="margin: 0; color: #b70040; font-size: 32px; font-weight: 700; letter-spacing: 1.5px;">DIGITIZ</h1>
+                        <img src="{{ public_path('uploads/pdf/pdf_logo.jpg') }}" alt="DIGITIZ" style="height: 35px; margin: 0;">
                         <p style="margin: 5px 0 0; color: #666666; font-size: 14px; font-weight: 500;">A Brand of Allure-Rapt eServices Private Limited</p>
                     </td>
                     <td width="30%" style="text-align: right; vertical-align: top;">

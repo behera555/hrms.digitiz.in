@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offer Letter - Digitiz</title>
+    <style>
+        @page { size: A4 portrait; margin: 0; }
+        html, body { margin: 0; padding: 0; width: 210mm; }
+        table { border-collapse: collapse; border-spacing: 0; }
+    </style>
 </head>
-<body style="margin: 0; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; width: 210mm;">
 
 <!-- Main Document Container -->
-<table width="100%" cellpadding="0" cellspacing="0" style="max-width: 800px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.1); border: 1px solid #e0e0e0;">
+<div style="width: 210mm; margin: 0; padding: 0;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width: 210mm; margin: 0; background-color: #ffffff; border: none; border-collapse: collapse; table-layout: fixed;">
     
     <!-- Header Section -->
     <tr>
@@ -16,7 +22,7 @@
             <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="70%" style="vertical-align: top;">
-                        <h1 style="margin: 0; color: #b70040; font-size: 32px; font-weight: 700; letter-spacing: 1.5px;">DIGITIZ</h1>
+                        <img src="{{ public_path('uploads/pdf/pdf_logo.jpg') }}" alt="DIGITIZ" style="height: 35px; margin: 0;">
                         <p style="margin: 5px 0 0; color: #666666; font-size: 14px; font-weight: 500;">A Brand of Allure-Rapt eServices Private Limited</p>
                     </td>
                     <td width="30%" style="text-align: right; vertical-align: top;">
@@ -46,7 +52,7 @@
             <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td>
-                        <p style="margin: 0; color: #444444; font-size: 14px; font-weight: 500;">Date: <span style="border-bottom: 1px dashed #999999; padding: 0 80px 2px 5px; margin-left: 10px;">____________</span></p>
+                        <p style="margin: 0; color: #444444; font-size: 14px; font-weight: 500;">Date: <span style="border-bottom: 1px dashed #999999; padding: 0 80px 2px 5px; margin-left: 10px;">{{date('d-m-Y')}}</span></p>
                     </td>
                 </tr>
             </table>
@@ -61,7 +67,7 @@
                     <td>
                         <p style="margin: 0 0 8px; color: #333333; font-size: 14px; font-weight: 500;">To,</p>
                         <p style="margin: 0 0 5px; color: #333333; font-size: 14px; padding-left: 20px;">{{$data['employee_name']}}</p>
-                        <p style="margin: 0; color: #333333; font-size: 14px; padding-left: 20px;">{{$data['address']}}</p>
+                        <p style="margin: 0; color: #333333; font-size: 14px; padding-left: 20px;">{{$data['address'] ?? ''}}</p>
                     </td>
                 </tr>
             </table>
@@ -101,7 +107,7 @@
                 <tr>
                     <td>
                         <p style="margin: 0 0 18px; color: #333333; font-size: 14px; line-height: 1.6; text-align: justify;">
-                            We are delighted to offer you the position of <strong>{{$data['designation']}}</strong> at Digitiz, a brand of Allure-Rapt eServices Private Limited. Your skills and background have impressed us, and we are confident that you will be an asset to our growing team.
+                            We are delighted to offer you the position of <strong>{{$data['job_title']}}</strong> at Digitiz, a brand of Allure-Rapt eServices Private Limited. Your skills and background have impressed us, and we are confident that you will be an asset to our growing team.
                         </p>
                     </td>
                 </tr>
@@ -134,7 +140,7 @@
                                     <table width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td width="30%" style="color: #b70040; font-weight: 600; font-size: 13px;">• Department:</td>
-                                            <td width="70%" style="color: #333333; font-size: 13px;">{{$data['department']}}</td>
+                                            <td width="70%" style="color: #333333; font-size: 13px;">{{$data['department'] ?? ''}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -154,7 +160,7 @@
                                     <table width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td width="30%" style="color: #b70040; font-weight: 600; font-size: 13px;">• Start Date:</td>
-                                            <td width="70%" style="color: #333333; font-size: 13px;">{{$data['offer_letter_date']}}</td>
+                                            <td width="70%" style="color: #333333; font-size: 13px;">{{$data['joining_date']}}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -164,7 +170,7 @@
                                     <table width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td width="30%" style="color: #b70040; font-weight: 600; font-size: 13px;">• Compensation:</td>
-                                            <td width="70%" style="color: #333333; font-size: 13px;">₹ {{$data['salary_package']}} per month (as per Annexure)</td>
+                                            <td width="70%" style="color: #333333; font-size: 13px;">₹ {{$data['salary_amount']}} per month (as per Annexure)</td>
                                         </tr>
                                     </table>
                                 </td>

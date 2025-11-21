@@ -18,6 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form method="post" id="letter_of_intent_edit" action="" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -70,7 +71,7 @@
                                                 <div class="input-group-text">
                                                     <i class="fa fa-money"></i>
                                                 </div>
-                                            </div><input name="stipend" class="form-control" value="{{$employees_letter_of_intent->stipend}}" placeholder="{{ __('Stipend') }}" type="text">
+                                            </div><input name="stipend" class="form-control" value="{{$employees_letter_of_intent->stipend}}" placeholder="{{ __('Stipend') }}" type="number" step="1" min="0">
                                         </div>
                                     </div>
                                 </div>

@@ -93,8 +93,8 @@
 														<td class="font-weight-semibold">{{ $val->monthly_package }}</td>
 														<td>{{ $val->days }}</td>
 														<td>
-                                                        <a href="{{ route('view-payslip-list', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="View" target=”_blank”><i class="feather feather-eye"></i></a>
-															<a class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-download"></i></a>
+                                                        <a href="{{ route('view-payslip-list', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="View" target="_blank"><i class="feather feather-eye"></i></a>
+                                                        	<a href="{{ route('download-payslip', $val->id) }}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-download"></i></a>
 																<a href="{{ route('employees-payslip-edit', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-edit"></i></a>
 															<a href="#" onclick="validate('{{ $val->id }}','{{ $val->employee_name }}')" class="btn btn-danger btn-icon btn-sm"><i class="feather feather-trash-2"></i></a>
 														</td>

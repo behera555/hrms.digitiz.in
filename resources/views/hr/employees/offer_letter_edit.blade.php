@@ -18,6 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form method="post" id="offer_letter_edit" action="" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -43,6 +44,72 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
                                             </div><input name="offer_letter_date" class="form-control" value="{{$employees_offer_letter->offer_letter_date}}" data-bs-toggle="modaldatepicker" placeholder="MM/DD/YYYY" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Department, Designation & Salary Row -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Department') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="department">
+                                                <option label="Choose one"></option>
+                                                @php
+                                                    $departmentNames = isset($departments) ? $departments->pluck('department_name')->toArray() : [];
+                                                    $currentDepartment = $employees_offer_letter->department ?? '';
+                                                @endphp
+                                                @if($currentDepartment && !in_array($currentDepartment, $departmentNames))
+                                                    <option value="{{ $currentDepartment }}" selected>{{ $currentDepartment }}</option>
+                                                @endif
+                                                @isset($departments)
+                                                    @foreach($departments as $dept)
+                                                        <option value="{{ $dept->department_name }}" {{ ($employees_offer_letter->department ?? '') == $dept->department_name ? 'selected' : '' }}>{{ $dept->department_name }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Designation') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="designation">
+                                                <option label="Choose one"></option>
+                                                @php
+                                                    $designationNames = isset($designtion) ? $designtion->pluck('designtion_name')->toArray() : [];
+                                                    $currentDesignation = $employees_offer_letter->designation ?? '';
+                                                @endphp
+                                                @if($currentDesignation && !in_array($currentDesignation, $designationNames))
+                                                    <option value="{{ $currentDesignation }}" selected>{{ $currentDesignation }}</option>
+                                                @endif
+                                                @isset($designtion)
+                                                    @foreach($designtion as $dsn)
+                                                        <option value="{{ $dsn->designtion_name }}" {{ ($employees_offer_letter->designation ?? '') == $dsn->designtion_name ? 'selected' : '' }}>{{ $dsn->designtion_name }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Salary Package') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-code"></i>
+                                                </div>
+                                            </div>
+                                            <input name="salary_package" class="form-control" type="number" step="0.01" value="{{ $employees_offer_letter->salary_package }}"></input>
                                         </div>
                                     </div>
                                 </div>

@@ -143,19 +143,24 @@ Route::group(['prefix' => 'hr', 'middleware' => ['auth', 'user-access:hr']], fun
       Route::delete('/employees_education_destroy/{id?}', [EmployeesController::class, 'employees_education_destroy'])->name('employees_education_destroy');
       /* ---- End Experience ---  */
 
-        /* ---- All Employees Offer Letter ---  */
-        Route::get('/employees-offer-letter', [EmployeesController::class, 'employees_offer_letter'])->name('employees-offer-letter');
-        Route::match(['get','post'],'/employees-education-add', [EmployeesController::class, 'employees_education_create'])->name('employees-education-add');
-        Route::match(['get','post'],'/employees-education-edit/{id?}', [EmployeesController::class, 'employees_education_edit'])->name('employees-education-edit');
-        Route::delete('/employees_education_destroy/{id?}', [EmployeesController::class, 'employees_education_destroy'])->name('employees_education_destroy');
-       /* ---- End Employees Offer Letter ---  */
+      //   /* ---- All Employees Offer Letter ---  */
+      //   Route::get('/employees-offer-letter', [EmployeesController::class, 'employees_offer_letter'])->name('employees-offer-letter');
+      //   Route::match(['get','post'],'/employees-education-add', [EmployeesController::class, 'employees_education_create'])->name('employees-education-add');
+      //   Route::match(['get','post'],'/employees-education-edit/{id?}', [EmployeesController::class, 'employees_education_edit'])->name('employees-education-edit');
+      //   Route::delete('/employees_education_destroy/{id?}', [EmployeesController::class, 'employees_education_destroy'])->name('employees_education_destroy');
+      //  /* ---- End Employees Offer Letter ---  */
        
-        /* ---- All Employees Offer Letter ---  */
-        Route::get('/employees-offere-letter', [EmployeesController::class, 'employees_offere_letter'])->name('employees-offere-letter');
-        Route::match(['get','post'],'/employees-education-add', [EmployeesController::class, 'employees_education_create'])->name('employees-education-add');
-        Route::match(['get','post'],'/employees-education-edit/{id?}', [EmployeesController::class, 'employees_education_edit'])->name('employees-education-edit');
-        Route::delete('/employees_education_destroy/{id?}', [EmployeesController::class, 'employees_education_destroy'])->name('employees_education_destroy');
+      //   /* ---- All Employees Offer Letter ---  */
+      //   Route::get('/employees-offere-letter', [EmployeesController::class, 'employees_offere_letter'])->name('employees-offere-letter');
+      //   Route::match(['get','post'],'/employees-education-add', [EmployeesController::class, 'employees_education_create'])->name('employees-education-add');
+      //   Route::match(['get','post'],'/employees-education-edit/{id?}', [EmployeesController::class, 'employees_education_edit'])->name('employees-education-edit');
+      //   Route::delete('/employees_education_destroy/{id?}', [EmployeesController::class, 'employees_education_destroy'])->name('employees_education_destroy');
+      //  /* ---- End Employees Offer Letter ---  */
+        /* handled by PDFController later; removed duplicate EmployeesController route */
        /* ---- End Employees Offer Letter ---  */
+
+      // Offer Letter Preview (PDF stream)
+      Route::get('/employees-offer-letter-preview/{id}', [PDFController::class, 'offer_letter_preview'])->name('employees-offer-letter-preview');
        
     /* ---- All Department ---  */
     Route::get('/department', [DepartmentController::class, 'index'])->name('hr-department');
@@ -303,13 +308,15 @@ Route::group(['prefix' => 'hr', 'middleware' => ['auth', 'user-access:hr']], fun
 
   Route::match(['get','post'],'/employees-reliving-letter', [PDFController::class, 'relieving_letter'])->name('employees-reliving-letter');
   Route::match(['get','post'],'/employees-reliving-letter-edit/{id?}', [PDFController::class, 'relieving_letter_edit'])->name('employees-reliving-letter-edit');
-    /* --new-- */
-  Route::get('/employees-letter-of-intent-preview/{id}', [PDFController::class, 'letter_of_intent_preview'])->name('employees-letter-of-intent-preview');
   Route::delete('/employees-reliving-letter-destroy/{id?}', [PDFController::class, 'relieving_letter_destroy'])->name('employees-reliving-letter-destroy');
+  // preview
+  Route::get('/employees-reliving-letter-preview/{id}', [PDFController::class, 'relieving_letter_preview'])->name('employees-reliving-letter-preview');
   
   Route::match(['get','post'],'/employees-letter-of-intent', [PDFController::class, 'letter_of_intent'])->name('employees-letter-of-intent');
   Route::match(['get','post'],'/employees-letter-of-intent-edit/{id?}', [PDFController::class, 'letter_of_intent_edit'])->name('employees-letter-of-intent-edit');
   Route::delete('/employees-letter-of-intent-destroy/{id?}', [PDFController::class, 'letter_of_intent_destroy'])->name('employees-letter-of-intent-destroy');
+    /* --new-- */
+  Route::get('/employees-letter-of-intent-preview/{id}', [PDFController::class, 'letter_of_intent_preview'])->name('employees-letter-of-intent-preview');
   
   Route::match(['get','post'],'/employees-offer-letter', [PDFController::class, 'offer_letter'])->name('employees-offer-letter');
   Route::match(['get','post'],'/employees-offer-letter-edit/{id?}', [PDFController::class, 'offer_letter_edit'])->name('employees-offer-letter-edit');
@@ -317,8 +324,9 @@ Route::group(['prefix' => 'hr', 'middleware' => ['auth', 'user-access:hr']], fun
   
   Route::match(['get','post'],'/employees-payslip-list', [PDFController::class, 'employees_payslip_list'])->name('employees-payslip-list');
   Route::match(['get','post'],'/employees-payslip-edit/{id?}', [PDFController::class, 'employees_payslip_edit'])->name('employees-payslip-edit');
-  Route::match(['get','post'],'/view-payslip-list/{id?}', [PDFController::class, 'view_payslip_list'])->name('view-payslip-list');
-  Route::delete('/employees-payslip-destroy/{id?}', [PDFController::class, 'payslip_destroy'])->name('employees-payslip-destroy');
+Route::match(['get','post'],'/view-payslip-list/{id?}', [PDFController::class, 'view_payslip_list'])->name('view-payslip-list');
+Route::get('/download-payslip/{id}', [PDFController::class, 'download_payslip'])->name('download-payslip');
+Route::delete('/employees-payslip-destroy/{id?}', [PDFController::class, 'payslip_destroy'])->name('employees-payslip-destroy');
   
   Route::get('/download-employees-list', [PDFController::class, 'download_employees_list'])->name('download-employees-list');
   Route::match(['get','post'],'/employee-bank-details-send/{id?}', [EmployeesController::class, 'employees_bank_details_send'])->name('employee-bank-details-send');
@@ -328,6 +336,8 @@ Route::group(['prefix' => 'hr', 'middleware' => ['auth', 'user-access:hr']], fun
    Route::match(['get','post'],'/employees-offere-letter', [PDFController::class, 'offere_letter'])->name('employees-offere-letter');
   Route::match(['get','post'],'/employees-offere-letter-edit/{id?}', [PDFController::class, 'offere_letter_edit'])->name('employees-offere-letter-edit');
   Route::delete('/employees-offere-letter-destroy/{id?}', [PDFController::class, 'offere_letter_destroy'])->name('employees-offere-letter-destroy');
+  // preview
+  Route::get('/employees-offere-letter-preview/{id}', [PDFController::class, 'offere_letter_preview'])->name('employees-offere-letter-preview');
   /* -- end -- */
 });
 

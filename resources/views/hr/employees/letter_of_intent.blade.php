@@ -122,6 +122,7 @@
 														<td>{{ numberFormat($val->stipend,2) }}</td>
 														<td>
 														    {{-- <a href="{{url('pdf/letter_of_intent/'.$val->file)}}" class="btn btn-primary btn-icon btn-sm" target=”_blank”><i class="feather feather-eye"></i></a> --}}  
+                                                            {{-- new --}}  
                                                             <a href="{{ route('employees-letter-of-intent-preview', $val->id) }}" class="btn btn-primary btn-icon btn-sm" target="_blank"><i class="feather feather-eye"></i></a>
 															<a href="{{url('pdf/letter_of_intent/'.$val->file)}}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download" download><i class="feather feather-download"></i></a>
 															<a href="{{ route('employees-letter-of-intent-edit', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-edit"></i></a>

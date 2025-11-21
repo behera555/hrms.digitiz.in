@@ -47,7 +47,59 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Department, Designation & Salary Row -->
                             <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Department') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="department">
+                                                <option label="Choose one"></option>
+                                                @isset($departments)
+                                                    @foreach($departments as $dept)
+                                                        <option value="{{ $dept->department_name }}">{{ $dept->department_name }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Designation') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="designation">
+                                                <option label="Choose one"></option>
+                                                @isset($designtion)
+                                                    @foreach($designtion as $dsn)
+                                                        <option value="{{ $dsn->designtion_name }}">{{ $dsn->designtion_name }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Salary Package') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-code"></i>
+                                                </div>
+                                            </div>
+                                            <input name="salary_package" class="form-control" type="number" step="0.01" placeholder="e.g. 25000"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label class="form-label mb-0 mt-2">{{ __('Probation Period') }}</label>
@@ -126,7 +178,7 @@
 														<td class="font-weight-semibold">{{ $val->address }}</td>
 														<td>{{ $val->offer_letter_date }}</td>
 														<td>
-														     <a href="{{url('pdf/offer_letter/'.$val->file)}}" class="btn btn-primary btn-icon btn-sm" target=”_blank”><i class="feather feather-eye"></i></a>
+														      <a href="{{ route('employees-offer-letter-preview', $val->id) }}" class="btn btn-primary btn-icon btn-sm" target="_blank"><i class="feather feather-eye"></i></a>
 															<a href="{{url('pdf/offer_letter/'.$val->file)}}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download" download><i class="feather feather-download"></i></a>
 														<a href="{{ route('employees-offer-letter-edit', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-edit"></i></a>
 														<a href="#" onclick="validate('{{ $val->id }}','{{ $val->employee_name }}')" class="btn btn-danger btn-icon btn-sm"><i class="feather feather-trash-2"></i></a>

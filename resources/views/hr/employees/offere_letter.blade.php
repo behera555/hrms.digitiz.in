@@ -33,7 +33,7 @@
                                             </div><input name="employee_name" class="form-control" type="text"></input>
                                         </div>
                                     </div>
-                                        <div class="col-md-3">
+                                    <div class="col-md-3">
                                         <label class="form-label mb-0 mt-2">{{ __('Job Title') }}</label>
                                     </div>
                                     <div class="col-md-3">
@@ -118,6 +118,21 @@
                                         </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Department') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="department">
+                                                <option label="Choose one"></option>
+                                                @if(isset($departments))
+                                                    @foreach($departments as $dept)
+                                                        <option value="{{ $dept->department_name }}">{{ $dept->department_name }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -167,7 +182,7 @@
 														<td class="font-weight-semibold">{{ $val->reporting_to }}</td>
 														<td>{{ $val->joining_date }}</td>
 														<td>
-														     <a href="{{url('pdf/offere_letter/'.$val->file)}}" class="btn btn-primary btn-icon btn-sm" target=”_blank”><i class="feather feather-eye"></i></a>
+                                                            <a href="{{ route('employees-offere-letter-preview', $val->id) }}" class="btn btn-primary btn-icon btn-sm" target="_blank"><i class="feather feather-eye"></i></a>
 															<a href="{{url('pdf/offere_letter/'.$val->file)}}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download" download><i class="feather feather-download"></i></a>
 														<a href="{{ route('employees-offere-letter-edit', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-edit"></i></a>
 														<a href="#" onclick="validate('{{ $val->id }}')"  class="btn btn-danger btn-icon btn-sm"><i class="feather feather-trash-2"></i></a>

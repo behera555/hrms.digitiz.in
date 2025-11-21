@@ -17,6 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <form method="post" id="offere_letter_edit" action="" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -114,6 +115,21 @@
                                             <option value="{{$val->name}}" {{ $val->name == $employees_offere_letter->reporting_to ? 'selected' : '' }}>{{$val->name}}</option>
                                           @endforeach
                                         </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label mb-0 mt-2">{{ __('Department') }}</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <select class="form-control select2-show-search custom-select" name="department">
+                                                <option label="Choose one"></option>
+                                                @isset($departments)
+                                                    @foreach($departments as $dept)
+                                                        <option value="{{ $dept->department_name }}" {{ ($employees_offere_letter->department ?? '') == $dept->department_name ? 'selected' : '' }}>{{ $dept->department_name }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

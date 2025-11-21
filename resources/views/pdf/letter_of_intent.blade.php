@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letter of Intent - Digitiz</title>
+    <style>
+        @page { size: A4 portrait; margin: 0; }
+        html, body { margin: 0; padding: 0; width: 210mm; }
+        table { border-collapse: collapse; border-spacing: 0; }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff;">
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; width: 210mm;">
 
 <!-- Main Document Container -->
-<div style="width: 190mm; margin: 10mm auto;">
-<table width="100%" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0; background-color: #ffffff; border: none; border-collapse: collapse;">
+<div style="width: 210mm; margin: 0; padding: 0;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width: 210mm; margin: 0; background-color: #ffffff; border: none; border-collapse: collapse; table-layout: fixed;">
     
     <!-- Header Section with Logo -->
     <tr>

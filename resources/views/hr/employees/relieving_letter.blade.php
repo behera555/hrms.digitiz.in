@@ -111,7 +111,7 @@
 														<td>{{ $val->resignation_email_date }}</td>
 														<td>{{ $val->relieved_date }}</td>
 														<td>
-														    <a href="{{url('pdf/relieving_letter/'.$val->file)}}" class="btn btn-primary btn-icon btn-sm" target=”_blank”><i class="feather feather-eye"></i></a>
+														    <a href="{{ route('employees-reliving-letter-preview', $val->id) }}" class="btn btn-primary btn-icon btn-sm" target="_blank"><i class="feather feather-eye"></i></a>
 															<a href="{{url('pdf/relieving_letter/'.$val->file)}}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download" download><i class="feather feather-download"></i></a>
 															<a href="{{ route('employees-reliving-letter-edit', $val->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-original-title="Download"><i class="feather feather-edit"></i></a>
 														<a href="#" onclick="validate('{{ $val->id }}','{{ $val->employee_name }}')" class="btn btn-danger btn-icon btn-sm"><i class="feather feather-trash-2"></i></a>
